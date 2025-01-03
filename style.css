@@ -79,11 +79,12 @@ button {
     padding: 10px 20px;
     margin-top: 10px;
     border: none;
-    background-color: blue;
+    background-color: black;
     color: white;
     border-radius: 50px;
     cursor: pointer;
     width: 100%;
+    
 }
 
 button:hover {
@@ -100,6 +101,22 @@ li {
     border-bottom: 1px solid #ddd;
 }
 
+/* Estilo do contêiner para o vídeo */
+.video-container {
+    position: fixed; /* Fixa o vídeo na tela */
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+    width: 200px; /* Largura do vídeo */
+    height: 112px; /* Altura do vídeo, proporcional ao tamanho */
+    z-index: 1000; /* Garante que o vídeo ficará sobre outros elementos */
+  }
+  
+  /* Ajustes para o iframe dentro do contêiner */
+  .video-container iframe {
+    width: 100%; /* O iframe ocupa 100% da largura do contêiner */
+    height: 100%; /* O iframe ocupa 100% da altura do contêiner */
+  }
+
 
 
 footer {
@@ -110,16 +127,15 @@ footer {
     padding: auto;
 }
 
-footer p {
-    color: #ffffff; /* Cor do texto */
-    font-family: Arial, sans-serif; /* Tipo de fonte */
+  
+
+footer a {
+    color: #000000;
+    text-decoration: double;
 }
 
-.social-media a {
-    margin:  15px;
-}
+footer a:hover {
+    text-decoration: underline;
+   
 
-.social-media img {
-    height: 30px;
-    cursor: cell;
 }

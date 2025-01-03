@@ -2,7 +2,7 @@
 
 let numeros = []; // Array para armazenar os números
 
-// Função para adicionar um número à lista
+// Função para adicionar um número
 function adicionarNumero() {
     const numeroInput = document.getElementById("numeroInput");
     const numero = parseFloat(numeroInput.value.trim()); // Converte o valor para número
@@ -16,17 +16,36 @@ function adicionarNumero() {
     }
 }
 
-// Função para atualizar a lista na tela
+// Função para atualizar a lista de números na tela
 function atualizarLista() {
-    const listaNumeros = document.getElementById("listaNumeros");
-    listaNumeros.innerHTML = ""; // Limpa a lista antes de atualizar
+    const lista = document.getElementById("listaNumeros");
+    lista.innerHTML = ""; // Limpa a lista atual
 
-    numeros.forEach((numero) => {
-        const li = document.createElement("li");
-        li.textContent = numero;
-        listaNumeros.appendChild(li);
+    // Adiciona cada número da lista com um botão de remover
+    numeros.forEach((numero, index) => {
+        const item = document.createElement("li");
+        item.textContent = numero;
+
+        // Cria um botão de remoção com ícone de lixeira
+        const removerButton = document.createElement("button");
+        removerButton.innerHTML = "🗑️"; // Ícone de lixeira
+        removerButton.onclick = () => removerNumero(index);
+
+        // Adiciona o botão de remover ao item da lista
+        item.appendChild(removerButton);
+        lista.appendChild(item);
     });
 }
+
+// Função para remover um número da lista
+function removerNumero(index) {
+    numeros.splice(index, 1); // Remove o número do array
+    atualizarLista(); // Atualiza a lista na tela
+}
+
+
+
+ 
 
 // Função para ordenar os números em ordem crescente
 function ordenarNumeros() {
@@ -51,6 +70,7 @@ toggleButton.onclick = function() {
         toggleButton.textContent = "Iniciar Música";  // Altera o texto do botão
     }
 };
+
 
 
 
